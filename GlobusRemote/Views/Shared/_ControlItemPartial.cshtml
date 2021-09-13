@@ -1,0 +1,17 @@
+﻿@model GlobusRemote.Models.BaseEditItemViewModel
+@using Localize = GlobusRemote.Localize.Index
+
+<div class="cell-wrapper">
+    @if (Model.CanEdit)
+    {
+        @*@Html.ActionLink(@Localize.DataControl_Submit_Edit_Title, "Edit", new { id = Model.Id }, new { @class = "compItem mr-2" })*@
+        <input type="submit" src="Edit?id=@Model.Id" class="btn btn-outline-info showdialog mr-2" data-toggle="modal" data-target="#exampleModalCenter" title="@Localize.DataControl_Submit_Edit_Hint" value="@Localize.DataControl_Submit_Edit_Title">
+    }
+    @if (Model.CanDelete)
+    {
+        @*@Html.ActionLink(@Localize.DataControl_Submit_Delete_Title, "Remove", new { id = Model.Id }, new { @class = "compItem" })*@
+        <form action="Remove?id=@Model.Id" method="post">
+            <input type="submit" class="btn btn-outline-danger" title="@Localize.DataControl_Submit_Delete_Hint" value="@Localize.DataControl_Submit_Delete_Title" onclick="return confirm('@Localize.DataControl_Submit_Delete_Confirm')">
+        </form>
+    }
+</div>

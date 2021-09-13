@@ -1,0 +1,119 @@
+﻿@using Localize = GlobusRemote.Localize.Index
+
+@{
+    var href = "";
+    var href2 = "?";
+    var tagSearch = "";
+    var tagPrevious = "";
+    var tagNext = "";
+    if (String.IsNullOrEmpty(Model.Search))
+    {
+        tagSearch = "disabled";
+    }
+    else
+    {
+        href2 += $"search={Model.Search}&";
+    }
+    if (!String.IsNullOrEmpty(Model.Header.SortedCurrent))
+    {
+        href = $"?sort={Model.Header.SortedCurrent}";
+        href2 += $"sort={Model.Header.SortedCurrent}&";
+    }
+    if (Model.Page <= 1)
+    {
+        tagPrevious = "disabled";
+    }
+    if (Model.Page >= Model.PagesCount)
+    {
+        tagNext = "disabled";
+    }
+}
+
+<ul class="nav">
+    @if (Model.CanAdd)
+    {
+        <li class="nav-item mr-3">
+            <input type="submit" src="Edit" class="btn btn-outline-primary showdialog" data-toggle="modal" data-target="#exampleModalCenter" title="@Localize.DataControl_Submit_Add_Hint" value="@Localize.DataControl_Submit_Add_Title">
+        </li>
+    }
+
+    <li class="nav-item mr-auto">
+        <form method="get">
+            <div class="input-group mb-3">
+                @*@Html.HiddenFor(m => m.Header.SortedField)*@
+                @Html.Hidden("sort", (object)Model.Header.SortedCurrent)
+                @*@Html.HiddenFor(m => m.Name)*@
+                <input class="form-control" type="text" placeholder="@Localize.DataControl_Submit_Search_Field_Title" aria-label="Search" id="search-field" name="search" value="@Model.Search">
+                <div class="input-group-append">
+                    <button id="search-submit" class="btn btn-outline-success @tagSearch" type="submit" aria-disabled="true">@Localize.DataControl_Submit_Search_Title</button>
+                    @*<input class="btn btn-outline-success @tagSearch" type="submit" id="search-submit" value="@Localize.DataControl_Search_Submit_Title" aria-disabled="true" />*@
+                    @if (!String.IsNullOrEmpty(Model.Search))
+                    {
+                        <a href="@href" class="btn btn-outline-danger" type="submit">@Localize.DataControl_Submit_Search_Clear_Title</a>
+                    }
+                </div>
+            </div>
+        </form>
+    </li>
+    @if (Model.PagesCount > 1)
+    {
+        var href_previous = $"{href2}page={@Model.PreviousPage}";
+        var href_next = $"{href2}page={@Model.NextPage}";
+        <li class="nav-item">
+            <ul class="pagination justify-content-end">
+                <li class="page-item @tagPrevious">
+                    <a class="page-link" href="@href_previous" aria-label="Previous">
+                        <span aria-hidden="true">&#8249;</span>
+                    </a>
+                </li>
+                @{ var i = 1; var x = 1; var border = 2; var count = 9;
+                    var center = (int)Math.Ceiling((decimal)count / 2);
+                    var leftBreak = Model.Page > center;
+                    var rightBreak = Model.Page + center - 1 < Model.PagesCount; }
+                @while (x <= Model.PagesCount && i <= count)
+                {
+                    var href_index = $"{href2}page={x}";
+                    var tag = "";
+                    @if (x == Model.Page)
+                    {
+                        tag = "active";
+                    }
+                    <li class="page-item @tag">
+                        <a class="page-link" href="@href_index">
+                            @x
+                            @if (x == Model.Page)
+                            {
+                                <span class="sr-only">(current)</span>
+                            }
+                        </a>
+                    </li>
+                    if (count < Model.PagesCount)
+                    {
+                        if ((i == border && leftBreak) || (i == count - border - 1 && rightBreak))
+                        {
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">...</a>
+                            </li>
+                            i++;
+                            if (i == border + 1 && rightBreak)
+                            {
+                                x = Model.Page - (int)Math.Ceiling((decimal)(count - 2 * border) / 2) + 1;
+                            }
+                            else
+                            {
+                                x = Model.PagesCount - count + i;
+                            }
+                        }
+                    }
+                    x++;
+                    i++;
+                }
+                <li class="page-item @tagNext">
+                    <a class="page-link" href="@href_next" aria-label="Next">
+                        <span aria-hidden="true">&#8250;</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    }
+</ul>

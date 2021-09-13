@@ -1,0 +1,72 @@
+﻿@model List<GlobusRemote.Areas.Admin.Models.OperatorsListViewModel>
+@using Localize = GlobusRemote.Localize.Index
+
+@{
+    ViewData["Title"] = @Localize.AdminPage_Operators_Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="divTable">
+    <div class="divTableBody">
+        <div class="divTableHeadRow">
+            <div>
+                @Localize.Field_Base_Id
+            </div>
+            <div>
+                @Localize.Field_Base_Name
+            </div>
+            <div>
+                @Localize.Field_Base_Lang
+            </div>
+            <div>
+                @Localize.Field_Base_FlagAdmin
+            </div>
+            <div>
+                @Localize.Field_Base_DateStart
+            </div>
+            <div>
+                @Localize.Field_Base_DateFinish
+            </div>
+            <div>
+                @Localize.Field_Base_FlagExpire
+            </div>
+            <div>
+                @Localize.Field_Base_Operations
+            </div>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="divTableRow">
+                <div>
+                    @item.Fid
+                </div>
+                <div>
+                    @item.Fname
+                </div>
+                <div>
+                    @item.FkLanguage
+                </div>
+                <div>
+                    @item.FflagAdmin
+                </div>
+                <div>
+                    @item.FdateStart
+                </div>
+                <div>
+                    @item.FdateFinish
+                </div>
+                <div>
+                    @item.FflagExpire
+                </div>
+                <div>
+                    @if (@item.CanEdit)
+                    {
+                        <form action="/Admin/Operators/Remove?id=@item.Fid" method="post">
+                            <input type="submit" title="Удалить текущую запись" value="Удалить" onclick="return confirm('Вы действительно хотите удалить выбранную запись?')">
+                        </form>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>

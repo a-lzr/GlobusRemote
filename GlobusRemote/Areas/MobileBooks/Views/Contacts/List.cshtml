@@ -1,0 +1,44 @@
+﻿@model GlobusRemote.Models.BaseListViewModel<GlobusRemote.Areas.MobileBooks.Models.ContactsItemViewModel>
+@using Localize = GlobusRemote.Localize.Index
+
+@{
+    ViewData["Title"] = @Localize.MobileBooksPage_Contacts_Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";   
+}
+
+@await Html.PartialAsync("_ControlListPartial")
+<div class="divTable">
+    <div class="divTableBody">
+        <div class="divTableHeadRow">
+            @await Html.PartialAsync("_HeaderListPartial")
+        </div>
+        @foreach (var item in Model.Items)
+        {
+            <div class="divTableRow">
+                @foreach (var column in Model.Header.Columns)
+                {
+                    if (column.PropertyName == "ContactsLinks")
+                    {
+                        <div>
+                            @foreach (var contact in item.ContactsLinks)
+                            {
+                                <div>
+                                    @contact.Fcontact
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div>
+                            @item[column.PropertyName]
+                        </div>
+                    }
+                }
+                <div>
+                    @await Html.PartialAsync("_ControlItemPartial", item.EditInfo)
+                </div>
+            </div>
+        }
+    </div>
+</div>

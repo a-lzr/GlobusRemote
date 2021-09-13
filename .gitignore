@@ -348,3 +348,4 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/GlobusRemote/192.168.12.1/c$/GlobusRemote

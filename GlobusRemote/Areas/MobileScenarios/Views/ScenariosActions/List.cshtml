@@ -1,0 +1,78 @@
+﻿@model List<GlobusRemote.Areas.MobileScenarios.Models.ScenariosActionsListViewModel>
+@using Localize = GlobusRemote.Localize.Index
+
+@{
+    ViewData["Title"] = @Localize.MobileScenariosPage_ScenariosActions_Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="divTable">
+    <div class="divTableBody">
+        <div class="divTableHeadRow">
+            <div>
+                @Localize.Field_Base_Id
+            </div>
+            <div>
+                @Localize.Field_Base_Group
+            </div>
+            <div>
+                @Localize.Field_Base_Type
+            </div>
+            <div>
+                @Localize.Field_Base_Name
+            </div>
+            <div>
+                @Localize.Field_Base_FlagExpire
+            </div>
+            <div>
+                @Localize.Field_Base_Comment
+            </div>
+            <div>
+                @Localize.Field_Base_DateCreated
+            </div>
+            <div>
+                @Localize.Field_Base_DateChanged
+            </div>
+            <div>
+                @Localize.Field_Base_Operations
+            </div>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="divTableRow">
+                <div>
+                    @item.Fid
+                </div>
+                <div>
+                    @item.FgroupName
+                </div>
+                <div>
+                    @item.FtypeName
+                </div>
+                <div>
+                    @item.Fname
+                </div>
+                <div>
+                    @item.FflagExpire
+                </div>
+                <div>
+                    @item.Fcomment
+                </div>
+                <div>
+                    @item.FdateCreated
+                </div>
+                <div>
+                    @item.FdateChanged
+                </div>
+                <div>
+                    @if (@item.CanEdit)
+                    {
+                        <form action="/Mobile/ScenariosActions/Remove?id=@item.Fid" method="post">
+                            <input type="submit" title="Удалить текущую запись" value="Удалить" onclick="return confirm('Вы действительно хотите удалить выбранную запись?')">
+                        </form>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
