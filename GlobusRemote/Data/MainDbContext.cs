@@ -218,7 +218,7 @@ namespace GlobusRemote.Data
                     .IsUnique();
 
                 entity.Property(e => e.Fid)
-                    .ValueGeneratedNever()
+                //    .ValueGeneratedNever()
                     .HasColumnName("FID");
 
                 entity.Property(e => e.Fbody)
@@ -228,11 +228,13 @@ namespace GlobusRemote.Data
                 entity.Property(e => e.FdateChanged)
                     .HasColumnType("datetime")
                     .HasColumnName("FDateChanged")
+                    .ValueGeneratedOnAddOrUpdate()
                     .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.FdateCreated)
                     .HasColumnType("datetime")
                     .HasColumnName("FDateCreated")
+                    .ValueGeneratedOnAddOrUpdate()
                     .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.Fextention)
@@ -240,9 +242,9 @@ namespace GlobusRemote.Data
                     .HasMaxLength(16)
                     .HasColumnName("FExtention");
 
-                entity.Property(e => e.Fhash)
-                    .HasMaxLength(16)
-                    .HasColumnName("FHash");
+                //entity.Property(e => e.Fhash)
+                //    .HasMaxLength(16)
+                //    .HasColumnName("FHash");
 
                 entity.Property(e => e.FkType).HasColumnName("FK_Type");
 

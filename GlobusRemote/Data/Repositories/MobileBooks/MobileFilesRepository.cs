@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace GlobusRemote.Data.Repositories.MobileBooks
 {
-    public class MobileFilesRepository : BaseRepository<TrsappFile>
+    public class MobileFilesRepository : BaseSyncRepository<TrsappFile>
     {
         public MobileFilesRepository(MainDbContext dbContext)
             : base(dbContext)
@@ -11,9 +11,9 @@ namespace GlobusRemote.Data.Repositories.MobileBooks
 
         }
 
-        public TrsappFile Get(long id)
+        public override TrsappFile Get(object id)
         {
-            return _dbSet.SingleOrDefault(x => x.Fid == id);
+            return _dbSet.SingleOrDefault(x => x.Fid == (long)id);
         }
 
         protected override IQueryable<TrsappFile> ApplyFiltering(IQueryable<TrsappFile> query, string search)

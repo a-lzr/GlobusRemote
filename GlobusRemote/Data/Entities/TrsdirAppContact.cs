@@ -25,5 +25,15 @@ namespace GlobusRemote.Data.Entities
 
         public virtual ICollection<TrsdirAppContactsLink> TrsdirAppContactsLinks { get; set; }
         public virtual ICollection<TrsappUsersContact> TrsappUsersContacts { get; set; }
+
+        public override object GetId()
+        {
+            return Fid;
+        }
+
+        public override bool IsEqual(object Id)
+        {
+            return Fid == (int)Id;
+        }
     }
 }

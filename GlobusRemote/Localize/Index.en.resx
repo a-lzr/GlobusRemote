@@ -138,6 +138,15 @@
   <data name="Base_AppName" xml:space="preserve">
     <value>GlobusRemote</value>
   </data>
+  <data name="DataControl_DropDownList_Select_Title" xml:space="preserve">
+    <value>Select item...</value>
+  </data>
+  <data name="DataControl_File_Confirm_Title" xml:space="preserve">
+    <value>Choise</value>
+  </data>
+  <data name="DataControl_File_Select_Title" xml:space="preserve">
+    <value>Select file...</value>
+  </data>
   <data name="DataControl_Submit_Add_Hint" xml:space="preserve">
     <value>Add new record</value>
   </data>
@@ -168,14 +177,29 @@
   <data name="DataControl_Submit_Search_Title" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="DataControl_Submit_Show_Hint" xml:space="preserve">
+    <value>View content of current record</value>
+  </data>
+  <data name="DataControl_Submit_Show_Title" xml:space="preserve">
+    <value>Show</value>
+  </data>
   <data name="DialogBase_Submit_Close" xml:space="preserve">
     <value>Close</value>
+  </data>
+  <data name="DialogEdit_Submit_Title" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="DialogLogin_Submit_Title" xml:space="preserve">
     <value>Log in</value>
   </data>
   <data name="DialogLogin_Text" xml:space="preserve">
     <value>Use a local account to log in.</value>
+  </data>
+  <data name="Error_DB_UK_RSAppFiles_Name" xml:space="preserve">
+    <value>A file with the current name already exists.</value>
+  </data>
+  <data name="FieldValidate_Required_Title" xml:space="preserve">
+    <value>The field is required.</value>
   </data>
   <data name="Field_Base_Code" xml:space="preserve">
     <value>Inner code</value>
@@ -228,6 +252,9 @@
   <data name="Field_Base_Lang" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="Field_Base_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
   <data name="Field_Base_Name" xml:space="preserve">
     <value>Name</value>
   </data>
@@ -237,6 +264,9 @@
   <data name="Field_Base_ParentLink" xml:space="preserve">
     <value>Link name</value>
   </data>
+  <data name="Field_Base_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
   <data name="Field_Base_Phone" xml:space="preserve">
     <value>Phone number</value>
   </data>
@@ -244,7 +274,7 @@
     <value>Scenario</value>
   </data>
   <data name="Field_Base_Size" xml:space="preserve">
-    <value>Size</value>
+    <value>Size, kb</value>
   </data>
   <data name="Field_Base_Text" xml:space="preserve">
     <value>Body</value>
@@ -291,6 +321,12 @@
   <data name="MobileBooksPage_Contacts_Title" xml:space="preserve">
     <value>Contacts</value>
   </data>
+  <data name="MobileBooksPage_Files_Add_Title" xml:space="preserve">
+    <value>File - Add</value>
+  </data>
+  <data name="MobileBooksPage_Files_Edit_Title" xml:space="preserve">
+    <value>File - Edit</value>
+  </data>
   <data name="MobileBooksPage_Files_Title" xml:space="preserve">
     <value>Files</value>
   </data>
@@ -326,5 +362,8 @@
   </data>
   <data name="MobileScenariosPage_Title" xml:space="preserve">
     <value>Scenario Templates</value>
+  </data>
+  <data name="Service_File_Drag_Title" xml:space="preserve">
+    <value>Drag the file here.</value>
   </data>
 </root>

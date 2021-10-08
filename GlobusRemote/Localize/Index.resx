@@ -138,6 +138,15 @@
   <data name="Base_AppName" xml:space="preserve">
     <value>GlobusRemote</value>
   </data>
+  <data name="DataControl_DropDownList_Select_Title" xml:space="preserve">
+    <value>Выберите элемент...</value>
+  </data>
+  <data name="DataControl_File_Confirm_Title" xml:space="preserve">
+    <value>Выбрать</value>
+  </data>
+  <data name="DataControl_File_Select_Title" xml:space="preserve">
+    <value>Выберите файл...</value>
+  </data>
   <data name="DataControl_Submit_Add_Hint" xml:space="preserve">
     <value>Добавить новую запись</value>
   </data>
@@ -168,14 +177,29 @@
   <data name="DataControl_Submit_Search_Title" xml:space="preserve">
     <value>Искать</value>
   </data>
+  <data name="DataControl_Submit_Show_Hint" xml:space="preserve">
+    <value>Просмотреть содержимое текущей записи</value>
+  </data>
+  <data name="DataControl_Submit_Show_Title" xml:space="preserve">
+    <value>Просмотр</value>
+  </data>
   <data name="DialogBase_Submit_Close" xml:space="preserve">
     <value>Закрыть</value>
+  </data>
+  <data name="DialogEdit_Submit_Title" xml:space="preserve">
+    <value>Сохранить</value>
   </data>
   <data name="DialogLogin_Submit_Title" xml:space="preserve">
     <value>Войти</value>
   </data>
   <data name="DialogLogin_Text" xml:space="preserve">
     <value>Используйте локальную учетную запись для входа в систему.</value>
+  </data>
+  <data name="Error_DB_UK_RSAppFiles_Name" xml:space="preserve">
+    <value>Файл с указанным именем уже существует.</value>
+  </data>
+  <data name="FieldValidate_Required_Title" xml:space="preserve">
+    <value>Поле не заполнено.</value>
   </data>
   <data name="Field_Base_Code" xml:space="preserve">
     <value>Внутренний код</value>
@@ -228,6 +252,9 @@
   <data name="Field_Base_Lang" xml:space="preserve">
     <value>Язык</value>
   </data>
+  <data name="Field_Base_Login" xml:space="preserve">
+    <value>Логин</value>
+  </data>
   <data name="Field_Base_Name" xml:space="preserve">
     <value>Название</value>
   </data>
@@ -237,6 +264,9 @@
   <data name="Field_Base_ParentLink" xml:space="preserve">
     <value>Принадлежность</value>
   </data>
+  <data name="Field_Base_Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
   <data name="Field_Base_Phone" xml:space="preserve">
     <value>Номер телефона</value>
   </data>
@@ -244,7 +274,7 @@
     <value>Сценарий</value>
   </data>
   <data name="Field_Base_Size" xml:space="preserve">
-    <value>Размер</value>
+    <value>Размер, кб</value>
   </data>
   <data name="Field_Base_Text" xml:space="preserve">
     <value>Текст</value>
@@ -291,6 +321,12 @@
   <data name="MobileBooksPage_Contacts_Title" xml:space="preserve">
     <value>Контакты</value>
   </data>
+  <data name="MobileBooksPage_Files_Add_Title" xml:space="preserve">
+    <value>Файл - добавление</value>
+  </data>
+  <data name="MobileBooksPage_Files_Edit_Title" xml:space="preserve">
+    <value>Файл - редактирование</value>
+  </data>
   <data name="MobileBooksPage_Files_Title" xml:space="preserve">
     <value>Файлы</value>
   </data>
@@ -326,5 +362,8 @@
   </data>
   <data name="MobileScenariosPage_Title" xml:space="preserve">
     <value>Шаблоны сценариев</value>
+  </data>
+  <data name="Service_File_Drag_Title" xml:space="preserve">
+    <value>Перетащите сюда файл.</value>
   </data>
 </root>

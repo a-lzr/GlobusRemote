@@ -7,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - @Localize.Base_AppName</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css?v=2" />
-    <link rel="stylesheet" href="~/css/table.css?v=2" />
-    <link rel="stylesheet" href="~/css/sidebar.css?v=2" />
+    <link rel="stylesheet" href="~/css/site.css?v=1" />
+    <link rel="stylesheet" href="~/css/table.css?v=1" />
+    <link rel="stylesheet" href="~/css/sidebar.css?v=1" />
+    <link rel="stylesheet" href="~/css/basic.css" />
+    <link href="~/css/dropzone.min.css" rel="stylesheet" />
     @*<link rel="stylesheet" href="~/css/bootstrap.min.css?v=1" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>*@
     @*<link rel="stylesheet" href="~/css/fa.css?v=2" />*@
 
@@ -28,6 +30,7 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+    @await RenderSectionAsync("Links", required: false)
 </head>
 <body>
     <div class="page-wrapper chiller-theme">
@@ -40,7 +43,7 @@
                 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
                     <div class="container">
                         <div class="navbar-header mr-3">
-                            <a href="/Home/Index"><img src="~/img/globus-logo.png" style="height: 60px; max-width: 100%; max-height: 100%" /></a>
+                            <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/globus-logo.png" style="height: 60px; max-width: 100%; max-height: 100%" /></a>
                         </div>
 
                         @*<a class="lHeader_logo" href="/"></a>*@
@@ -51,23 +54,16 @@
                         </button>
                         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                             <ul class="navbar-nav flex-grow-1 ulMenu">
-                                <li class="nav-item mr-3">
+                                @*<li class="nav-item mr-3">
                                     <a asp-area="" asp-controller="Home" asp-action="Index">@Localize.Header_Main</a>
                                 </li>
                                 <li class="nav-item mr-3">
-                                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                                    <a asp-area="" asp-controller="Privacy" asp-action="List">Privacy</a>
                                 </li>
-                                @*<li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">@Localize.Header_AdminArea</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">@Localize.Header_ServiceArea</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">@Localize.Header_ServiceArea</a>
-                                    </li>*@
+                                <li class="nav-item mr-3">
+                                    <a asp-area="" asp-controller="Student" asp-action="Index">Student</a>
+                                </li>*@
                             </ul>
-                            @*<partial name="_LoginPartial" />*@
                             <partial name="_LangPartial" />
                         </div>
                     </div>
@@ -93,9 +89,32 @@
             </footer>
         </div>
     </div>
+    @*
+        <script src="~/js/details.js"></script>
+        <script src="~/js/details.js"></script>*@
+    @*<script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>*@
+
+    @*
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        <script src="~/scripts/jquery-1.10.2.js"></script>
+        <script src="~/scripts/jquery.unobtrusive-ajax.js"></script>*@
+
+    @*<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>*@
+
+    @*base*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @*<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>*@
+    @*more*@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js?v=3" asp-append-version="true"></script>
+    <script src="~/js/dropzone.min.js"></script>
+    <script src="~/js/site.js"></script>
+    @*<script src="~/js/details.js"></script>*@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

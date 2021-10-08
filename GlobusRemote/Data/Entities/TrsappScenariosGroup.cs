@@ -31,5 +31,15 @@ namespace GlobusRemote.Data.Entities
         public virtual ICollection<TrsappUsersMissionsItem> TrsappUsersMissionsItems { get; set; }
         public virtual ICollection<TrsappUsersMissionsItemsSigned> TrsappUsersMissionsItemsSigneds { get; set; }
         public virtual ICollection<TrsappUsersMsg> TrsappUsersMsgs { get; set; }
+
+        public override object GetId()
+        {
+            return Fid;
+        }
+
+        public override bool IsEqual(object Id)
+        {
+            return Fid == (int)Id;
+        }
     }
 }

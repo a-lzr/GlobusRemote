@@ -24,5 +24,15 @@ namespace GlobusRemote.Data.Entities
         public virtual TrsappUser FkParentNavigation { get; set; }
         public virtual ICollection<TrsappUsersMissionsFile> TrsappUsersMissionsFiles { get; set; }
         public virtual ICollection<TrsappUsersMissionsItem> TrsappUsersMissionsItems { get; set; }
+
+        public override object GetId()
+        {
+            return Fid;
+        }
+
+        public override bool IsEqual(object Id)
+        {
+            return Fid == (long)Id;
+        }
     }
 }

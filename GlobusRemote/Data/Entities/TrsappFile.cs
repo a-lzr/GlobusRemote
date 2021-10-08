@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace GlobusRemote.Data.Entities
 {
-    public partial class TrsappFile : BaseEntity
+    public partial class TrsappFile : BaseSyncEntity
     {
         public TrsappFile()
         {
@@ -20,11 +20,26 @@ namespace GlobusRemote.Data.Entities
         public string Fextention { get; set; }
         public int Fsize { get; set; }
         public byte[] Fbody { get; set; }
-        public byte[] Fhash { get; set; }
-        public DateTime FdateCreated { get; set; }
-        public DateTime FdateChanged { get; set; }
-
+//        public byte[] Fhash { get; set; }
         public virtual TrsdirAppFilesType FkTypeNavigation { get; set; }
+
+        public override object GetId()
+        {
+            if (Fid == default(long))
+            {
+                return null;
+            }
+            return Fid;
+        }
+
+        public override bool IsEqual(object Id)
+        {
+            if (Id == null)
+            {
+                return false;
+            }
+            return Fid == (long)Id;
+        }
         //public virtual ICollection<TrsappScenariosGroupsItem> TrsappScenariosGroupsItems { get; set; }
         //public virtual ICollection<TrsappScenariosInstruction> TrsappScenariosInstructions { get; set; }
         //public virtual ICollection<TrsappUsersMissionsFile> TrsappUsersMissionsFiles { get; set; }

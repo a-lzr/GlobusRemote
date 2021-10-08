@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using GlobusRemote.Data.Const;
 using GlobusRemote.Data.Entities;
 using GlobusRemote.Data.Repositories;
 using GlobusRemote.Models;
@@ -7,7 +6,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace GlobusRemote.Controllers
 {
@@ -58,7 +56,7 @@ namespace GlobusRemote.Controllers
                 Search = search,
                 Header = header,
                 Items = _mapper.Map<List<ItemModel>>(data),
-                CanAdd = CanAdd()
+                CanAdd = CanAdd(),
             };
                 
             if (fillItemsCustom)
@@ -73,10 +71,9 @@ namespace GlobusRemote.Controllers
 
         protected virtual void FillItemViewModel(List<Entity> data, BaseItemViewModel item)
         {
+            item.EditInfo.CanShow = false;
             item.EditInfo.CanEdit = false;
             item.EditInfo.CanDelete = false;
         }
-
-        //protected abstract void GetData();
     }
 }

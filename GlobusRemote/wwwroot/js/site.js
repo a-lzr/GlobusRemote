@@ -128,70 +128,183 @@ $(document).ready(function () {
         }
     });
 
-    /*modalshow*/
-    $(".showdialog").click(function (e) {
-        if ($(this).tagName = "A") {
-            e.preventDefault(); //  отменяет выполнение события
-            $.get(this.href, function (data) {
-                $('#dialogContent').html(data);
-                $('#modDialog').modal('show');
-            });
-        }
-        else {
-            $.get(this.src, function (data) {
-                $('#dialogContent').html(data);
-                $('#modDialog').modal('show');
-            });
-        }
-    });
+    ///*modalshow*/
+    //$(".showdialog").click(function (e) {
+    //    if ($(this).tagName = "A") {
+    //        e.preventDefault(); //  отменяет выполнение события
+    //        $.get(this.href, function (data) {
+    //            $('#dialogContent').html(data);
+    //            $('#modDialog').modal('show');
+    //        });
+    //    }
+    //    else {
+    //        $.get(this.src, function (data) {
+    //            $('#dialogContent').html(data);
+    //            $('#modDialog').modal('show');
+    //        });
+    //    }
+    //});
 
-    /*modaledit*/
-    $(".editdialog").click(function (e) {
-        $.get(this.src, function (data) {
-            $('#dialogContent').html(data);
-            $('#modDialog').modal('show');
-        });
-    });
+    /*logindialog*/
+    //$(".loginDialog").click(function (e) {
+    //    $.get(this.src, function (data) {
+    //        $("#loginFormContent").html(data);
+    //        /*$("#loginDialog").modal("show");*/
+    //    });
+    //});
 
-    //$("#btnSubmit").click(function () {
+    /*adddialog*/
+    //$(".addDialog").click(function (e) {
+    //    $(".mode-edit").addClass("hidden");
+    //    $(".mode-add").removeClass("hidden");
+    //    $.get(this.src, function (data) {
+    //        $("#editFormContent").html(data);
+    //        $("#editDialog").modal("show");
+    //    });
+    //});
+
+    /*editdialog*/
+    //$(".editDialog").click(function (e) {
+    //    $(".mode-add").addClass("hidden");
+    //    $(".mode-edit").removeClass("hidden");
+    //    $.get(this.src, function (data) {
+    //        $("#editFormContent").html(data);
+    //        $("#editDialog").modal("show");
+    //    });
+    //});
+
+    /*uploadfile*/
+//    var dropZone = $('#upload-container');
+
+//    $('#file-input').focus(function () {
+//        $('label').addClass('focus');
+//    })
+//        .focusout(function () {
+//            $('label').removeClass('focus');
+//        });
+
+//    dropZone.on('drag dragstart dragend dragover dragenter dragleave drop', function () {
+//        return false;
+//    });
+
+//    dropZone.on('dragover dragenter', function () {
+//        dropZone.addClass('dragover');
+//    });
+
+//    dropZone.on('dragleave', function (e) {
+//        dropZone.removeClass('dragover');
+//    });
+
+//    dropZone.on('drop', function (e) {
+//        dropZone.removeClass('dragover');
+//        let files = e.originalEvent.dataTransfer.files;
+///*        sendFiles(files);*/
+//    });
+
+    //$("#uploadContainer").on("dragenter", function (evt) {
+    //    evt.preventDefault();
+    //    evt.stopPropagation();
+    //});
+
+    //$("#uploadContainer").on("dragover", function (evt) {
+    //    evt.preventDefault();
+    //    evt.stopPropagation();
+    //});
+
+    //$("#uploadContainer").on("drop", function (evt) {
+    //    evt.preventDefault();
+    //    evt.stopPropagation();
+    //    var files = evt.originalEvent.dataTransfer.files;
+    //    var fileNames = "";
+    //    if (files.length > 0) {
+    //        fileNames += "Uploading <br/>"
+    //        for (var i = 0; i < files.length; i++) {
+    //            fileNames += files[i].name + "<br />";
+    //        }
+    //    }
+    //    $("#fileBasket").html(fileNames)
+
+    //    var data = new FormData();
+    //    for (var i = 0; i < files.length; i++) {
+    //        data.append(files[i].name, files[i]);
+    //    }
     //    $.ajax({
-    //        url: 'Home/AddCustomer',
-    //        data: {},
-    //        type: 'POST',
-    //        dataType: 'html',
-    //        contentType: "application/json; charset=utf-8",
-    //        success: function (response) {
-    //            $("#dvPartial").html(response);
-    //            $("#MyPopup").modal("show");
+    //        type: "POST",
+    //        url: "/home/UploadFiles",
+    //        contentType: false,
+    //        processData: false,
+    //        data: data,
+    //        success: function (message) {
+    //            $("#fileBasket").html(message);
+    //        },
+    //        error: function () {
+    //            $("#fileBasket").html
+    //                ("There was error uploading files!");
+    //        },
+    //        beforeSend: function () {
+    //            $("#progress").show();
+    //        },
+    //        complete: function () {
+    //            $("#progress").hide();
     //        }
     //    });
     //});
 
-    //$(".viewDialog").click(function (e) {
-    //    e.preventDefault();
+    //$(".editDialog").click(function (e) {
+    //    $(".mode-add").addClass("hidden");
+    //    $(".mode-edit").removeClass("hidden");
+    //    $.get(this.src, function (data) {
+    //        $("#editFormContent").html(data);
+    //        $("#editDialog").modal("show");
+    //    });
+    //});
 
-    //    $("<div id='dialogContent'></div>")
-    //        .addClass("dialog")
-    //        .appendTo("body")
-    //        .load(this.href)
-    //        .dialog({
-    //            title: $(this).attr("data-dialog-title"),
-    //            close: function () { $(this).remove() },
-    //            modal: true,
-    //            buttons: {
-    //                "Сохранить": function () {
-    //                    //$.ajax({
-    //                    //    url: "@Url.Action("Create", "Home")",
-    //                    //    type: "POST",
-    //                    //    data: $('form').serialize(),
-    //                    //    datatype: "json",
-    //                    //    success: function (result) {
+    /*editdialog*/
+    //$(".editDialog").click(function (e) {
+    //    $(".mode-add").addClass("hidden");
+    //    $(".mode-edit").removeClass("hidden");
+    //    $.get(this.src, function (data) {
+    //        $("#editFormContent").html(data);
+    //        $("#editDialog").modal("show");
+    //    });
+    //});
 
-    //                    //        $("#dialogContent").html(result);
-    //                    //    }
-    //                    //});
+    //function OnBegin() {
+    //    $("#progress").show();
+    //}
+
+    //function OnFailure(response) {
+    //    alert("Error occured.");
+    //}
+
+    //function OnSuccess(response) {
+    //    alert("Error successed.");
+    //    //var message = "Name: " + response.Name;
+    //    //message += "\nCountry: " + response.Country;
+    //    //alert(message);
+    //}
+
+    //function OnComplete() {
+    //    $("#progress").hide();
+    //}
+
+    //function bindForm(dialog) {
+    //    $('form', dialog).submit(function () {
+    //        $.ajax({
+    //            url: this.action,
+    //            type: this.method,
+    //            data: $(this).serialize(),
+    //            success: function (result) {
+    //                if (result.success) {
+    //                    $('#myModal').modal('hide');
+    //                    $('#replacetarget').load(result.url); //  Load data from the server and place the returned HTML into the matched element
+    //                } else {
+    //                    $('#myModalContent').html(result);
+    //                    bindForm(dialog);
     //                }
     //            }
     //        });
-    //});
+    //        return false;
+    //    });
+    //}
 });

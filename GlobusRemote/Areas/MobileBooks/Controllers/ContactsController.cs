@@ -10,6 +10,7 @@ using System.Collections.Generic;
 
 namespace GlobusRemote.Areas.MobileBooks.Controllers
 {
+    [Area("MobileBooks")]
     public class ContactsController : BaseController<TrsdirAppContact>
     {
         //public static MobileContactsRepository СontactsRepository { get; } = (MobileContactsRepository) _repository;

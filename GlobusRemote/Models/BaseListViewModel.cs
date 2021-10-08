@@ -1,9 +1,4 @@
-﻿using GlobusRemote.Data.Const;
-using GlobusRemote.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace GlobusRemote.Models
 {
@@ -28,13 +23,6 @@ namespace GlobusRemote.Models
                 return Page + 1;
             }
         }
-        //public int CurrentPageStartRecordNumber
-        //{
-        //    get
-        //    {
-        //        return (Page - 1) * RecordPerPage + 1;
-        //    }
-        //}
         public HeaderViewModel Header { get; set; }
         public List<ItemModel> Items { get; set; }
         public string Search { get; set; }

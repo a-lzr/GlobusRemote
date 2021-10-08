@@ -1,18 +1,92 @@
-﻿@model GlobusRemote.Areas.MobileBooks.Models.FilesItemViewModel
-@*@model GlobusRemote.Data.Computer*@
+﻿@model GlobusRemote.Areas.MobileBooks.Models.FilesEditViewModel
 @using Localize = GlobusRemote.Localize.Index
 
-<div class="modal-content">
-    <div class="modal-header">
-        <button class="close" data-dismiss="modal" area-hidden="true">X</button>
-        <h4>Модель компьютера</h4>
-    </div>
+@{
+    Layout = "~/Views/Shared/_LayoutDialog.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id="editForm", enctype = "multipart/form-data" }))
+{
     <div class="modal-body">
-        <dl class="dl-horizontal">
-            <dt>@Localize.Field_Base_Name:</dt>
-            @*<dd>@Html.DisplayFor(model => model.Fname)</dd>*@
-            <dt>@Localize.Field_Base_Extention:</dt>
-            @*<dd>@Html.DisplayFor(model => model.Fextention)</dd>*@
-        </dl>
+
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Fid)
+
+            <div class="form-floating">
+                @Html.EditorFor(model => model.File, new
+                {
+                    htmlAttributes = new
+                    {
+                        @type = "file",
+                        @class = "hidden",
+                        @id = "file"
+                    }
+                })
+                <label asp-for="File" for="file" style="width: 100%;">
+                    <div class="input-group">
+                        <div class="form-control fileTitle">@Localize.DataControl_File_Select_Title</div>
+                        <div class="input-group-append">
+                            <div class="btn btn-outline-success">@Localize.DataControl_File_Confirm_Title</div>
+                        </div>
+                    </div>
+                </label>
+            </div>
+
+            <div class="form-floating">
+                @Html.LabelFor(model => model.FkType, htmlAttributes: new { @class = "form-label" })
+                @Html.DropDownListFor(model => model.FkType, Model.Types, Localize.DataControl_DropDownList_Select_Title, new
+                {
+                    @class = "custom-select"
+                })
+                @Html.ValidationMessageFor(model => model.FkType, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-floating">
+                @Html.LabelFor(model => model.Fname, htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.Fname, new
+                {
+                    htmlAttributes = new
+                    {
+                        @class = "form-control",
+                        @id = "nameField"
+                    }
+                })
+                @Html.ValidationMessageFor(model => model.Fname, "", new { @class = "text-danger" })
+                @Html.ValidationMessage("CustomError")
+            </div>
+
+            <div class="form-floating">
+                @Html.LabelFor(model => model.Fextention, htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.Fextention, new
+                {
+                    htmlAttributes = new
+                    {
+                        @class = "form-control",
+                        @id = "extentionField",
+                        @readonly = "readonly"
+                    }
+                })
+                @Html.ValidationMessageFor(model => model.Fextention, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-floating">
+                @Html.LabelFor(model => model.Fsize, htmlAttributes: new { @class = "form-label" })
+                @Html.HiddenFor(model => model.Fsize)
+                @Html.EditorFor(model => model.FsizeInKb, new
+                {
+                    htmlAttributes = new
+                    {
+                        @class = "form-control",
+                        @id = "sizeInKbField",
+                        @readonly = "readonly"
+                    }
+                })
+                @Html.ValidationMessageFor(model => model.Fsize, "", new { @class = "text-danger" })
+            </div>
+        </div>
     </div>
-</div>
+    @await Html.PartialAsync("_EditFooterPartial")
+}

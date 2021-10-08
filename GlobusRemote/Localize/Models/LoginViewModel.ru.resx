@@ -121,12 +121,12 @@
     <value>Логин</value>
   </data>
   <data name="LoginRequired" xml:space="preserve">
-    <value>Не указан логин.</value>
+    <value>Поле Логин не заполнено.</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Пароль</value>
   </data>
   <data name="PasswordRequired" xml:space="preserve">
-    <value>Не указан пароль.</value>
+    <value>Поле Пароль не заполено.</value>
   </data>
 </root>

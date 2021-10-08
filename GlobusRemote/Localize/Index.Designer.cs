@@ -124,6 +124,33 @@ namespace GlobusRemote.Localize {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Выберите элемент....
+        /// </summary>
+        public static string DataControl_DropDownList_Select_Title {
+            get {
+                return ResourceManager.GetString("DataControl_DropDownList_Select_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Выбрать.
+        /// </summary>
+        public static string DataControl_File_Confirm_Title {
+            get {
+                return ResourceManager.GetString("DataControl_File_Confirm_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Выберите файл....
+        /// </summary>
+        public static string DataControl_File_Select_Title {
+            get {
+                return ResourceManager.GetString("DataControl_File_Select_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Добавить новую запись.
         /// </summary>
         public static string DataControl_Submit_Add_Hint {
@@ -214,11 +241,38 @@ namespace GlobusRemote.Localize {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Просмотреть содержимое текущей записи.
+        /// </summary>
+        public static string DataControl_Submit_Show_Hint {
+            get {
+                return ResourceManager.GetString("DataControl_Submit_Show_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Просмотр.
+        /// </summary>
+        public static string DataControl_Submit_Show_Title {
+            get {
+                return ResourceManager.GetString("DataControl_Submit_Show_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Закрыть.
         /// </summary>
         public static string DialogBase_Submit_Close {
             get {
                 return ResourceManager.GetString("DialogBase_Submit_Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранить.
+        /// </summary>
+        public static string DialogEdit_Submit_Title {
+            get {
+                return ResourceManager.GetString("DialogEdit_Submit_Title", resourceCulture);
             }
         }
         
@@ -237,6 +291,15 @@ namespace GlobusRemote.Localize {
         public static string DialogLogin_Text {
             get {
                 return ResourceManager.GetString("DialogLogin_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Файл с указанным именем уже существует..
+        /// </summary>
+        public static string Error_DB_UK_RSAppFiles_Name {
+            get {
+                return ResourceManager.GetString("Error_DB_UK_RSAppFiles_Name", resourceCulture);
             }
         }
         
@@ -394,6 +457,15 @@ namespace GlobusRemote.Localize {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Логин.
+        /// </summary>
+        public static string Field_Base_Login {
+            get {
+                return ResourceManager.GetString("Field_Base_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Название.
         /// </summary>
         public static string Field_Base_Name {
@@ -421,6 +493,15 @@ namespace GlobusRemote.Localize {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Пароль.
+        /// </summary>
+        public static string Field_Base_Password {
+            get {
+                return ResourceManager.GetString("Field_Base_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Номер телефона.
         /// </summary>
         public static string Field_Base_Phone {
@@ -439,7 +520,7 @@ namespace GlobusRemote.Localize {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Размер.
+        ///   Looks up a localized string similar to Размер, кб.
         /// </summary>
         public static string Field_Base_Size {
             get {
@@ -462,6 +543,15 @@ namespace GlobusRemote.Localize {
         public static string Field_Base_Type {
             get {
                 return ResourceManager.GetString("Field_Base_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поле не заполнено..
+        /// </summary>
+        public static string FieldValidate_Required_Title {
+            get {
+                return ResourceManager.GetString("FieldValidate_Required_Title", resourceCulture);
             }
         }
         
@@ -583,6 +673,24 @@ namespace GlobusRemote.Localize {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Файл - добавление.
+        /// </summary>
+        public static string MobileBooksPage_Files_Add_Title {
+            get {
+                return ResourceManager.GetString("MobileBooksPage_Files_Add_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Файл - редактирование.
+        /// </summary>
+        public static string MobileBooksPage_Files_Edit_Title {
+            get {
+                return ResourceManager.GetString("MobileBooksPage_Files_Edit_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Файлы.
         /// </summary>
         public static string MobileBooksPage_Files_Title {
@@ -687,6 +795,15 @@ namespace GlobusRemote.Localize {
         public static string MobileScenariosPage_Title {
             get {
                 return ResourceManager.GetString("MobileScenariosPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Перетащите сюда файл..
+        /// </summary>
+        public static string Service_File_Drag_Title {
+            get {
+                return ResourceManager.GetString("Service_File_Drag_Title", resourceCulture);
             }
         }
     }

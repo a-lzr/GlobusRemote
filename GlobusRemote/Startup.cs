@@ -122,8 +122,9 @@ namespace GlobusRemote
             var repositories = assembly.GetTypes()
                 .Where(x =>
                     x.IsClass
+                    && !x.IsAbstract
                     && x.BaseType.IsGenericType
-                    && x.BaseType.GetGenericTypeDefinition() == typeof(BaseRepository<>));
+                    && (x.BaseType.GetGenericTypeDefinition() == typeof(BaseRepository<>) || x.BaseType.GetGenericTypeDefinition() == typeof(BaseSyncRepository<>)));
 
             foreach (var repositoryType in repositories)
             {
@@ -156,7 +157,23 @@ namespace GlobusRemote
             provider.CreateMap<TrsappFile, FilesItemViewModel>()
                 .ForMember(
                     nameof(FilesItemViewModel.FtypeName),
-                    config => config.MapFrom(item => item.FkTypeNavigation.Fname));
+                    config => config.MapFrom(item => item.FkTypeNavigation.Fname))
+                .ForMember(
+                    nameof(FilesItemViewModel.FsizeInKb),
+                    config => config.MapFrom(item => Math.Round((double) item.Fsize / 1024, 2)));
+
+            provider.CreateMap<TrsappFile, FilesEditViewModel>()
+                .ForMember(
+                    nameof(FilesItemViewModel.FsizeInKb),
+                    config => config.MapFrom(item => Math.Round((double)item.Fsize / 1024, 2)));
+
+            provider.CreateMap<FilesEditViewModel, TrsappFile>();
+                //.ForMember(
+                //    nameof(TrsappFile.FtypeName),
+                //    config => config.MapFrom(item => item.FkTypeNavigation.Fname))
+                //.ForMember(
+                //    nameof(TrsappFile.FsizeInKb),
+                //    config => config.MapFrom(item => Math.Round((double)item.Fsize / 1024, 2)));
 
             var mapperConfiguration = new MapperConfiguration(provider);
             var mapper = new Mapper(mapperConfiguration);
@@ -230,20 +247,20 @@ namespace GlobusRemote
                 // https://metanit.com/sharp/mvc/4.5.php частичные представления
                 endpoints.MapAreaControllerRoute(
                     name: "admin-default",
-                    areaName: "admin",
-                    pattern: "admin/{controller=Operators}/{action=List}/{id?}");
+                    areaName: "Admin",
+                    pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapAreaControllerRoute(
                     name: "mobile-default",
-                    areaName: "mobile",
-                    pattern: "mobile/{controller=Users}/{action=List}/{id?}");
+                    areaName: "Mobile",
+                    pattern: "Mobile/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapAreaControllerRoute(
                     name: "mobilescenarios-default",
-                    areaName: "mobilescenarios",
-                    pattern: "mobilescenarios/{controller=Scenarios}/{action=List}/{id?}");
+                    areaName: "MobileScenarios",
+                    pattern: "MobileScenarios/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapAreaControllerRoute(
                     name: "mobilebooks-default",
-                    areaName: "mobilebooks",
-                    pattern: "mobilebooks/{controller=Files}/{action=List}/{id?}");
+                    areaName: "MobileBooks",
+                    pattern: "MobileBooks/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

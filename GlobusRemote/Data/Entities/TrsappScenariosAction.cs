@@ -25,5 +25,15 @@ namespace GlobusRemote.Data.Entities
         public virtual TrsdirAppScenariosActionsType FkTypeNavigation { get; set; }
         public virtual ICollection<TrsappScenariosActionsValue> TrsappScenariosActionsValues { get; set; }
         public virtual ICollection<TrsappScenariosItem> TrsappScenariosItems { get; set; }
+
+        public override object GetId()
+        {
+            return Fid;
+        }
+
+        public override bool IsEqual(object Id)
+        {
+            return Fid == (int)Id;
+        }
     }
 }

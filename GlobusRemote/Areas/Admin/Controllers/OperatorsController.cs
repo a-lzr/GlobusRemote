@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 namespace GlobusRemote.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class OperatorsController : Controller
     {
         private OperatorsRepository _repository;

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 namespace GlobusRemote.Areas.MobileScenarios.Controllers
 {
+    [Area("MobileScenarios")]
     public class ScenariosActionsController : Controller
     {
         private MobileScenariosActionsRepository _repository;

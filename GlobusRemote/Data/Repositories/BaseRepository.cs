@@ -8,7 +8,7 @@ using System.Linq.Dynamic.Core;
 
 namespace GlobusRemote.Data.Repositories
 {
-    public class BaseRepository<Entity>
+    public abstract class BaseRepository<Entity>
         where Entity : BaseEntity
     {
         protected MainDbContext _mainDbContext;
@@ -20,19 +20,19 @@ namespace GlobusRemote.Data.Repositories
             _dbSet = _mainDbContext.Set<Entity>();
         }
 
-        //public Type GetEntity()
-        //{
-        //    return typeof(Entity);
-        //}
-
-        //public Entity Get(long id)
-        //{
-        //    return _dbSet.SingleOrDefault(x => x.Id == id);
-        //}
-
         public List<Entity> GetAll()
         {
             return _dbSet.ToList();
+        }
+
+        public virtual Entity Get(object id)
+        {
+            return null;
+        }
+
+        public bool IsNew(Entity entity)
+        {
+            return entity.GetId() == null;
         }
 
         protected virtual IQueryable<Entity> ApplyFiltering(IQueryable<Entity> query, string search)
@@ -95,16 +95,24 @@ namespace GlobusRemote.Data.Repositories
 
         public void Save(Entity entity)
         {
-            //if (model.Id > 0)
-            //{
-            //    _mazeDbContext.Update(model);
-            //}
-            //else
-            //{
-            //    _dbSet.Add(model);
-            //}
-
+            if (IsNew(entity))
+            {
+                _dbSet.Add(entity);                
+            }
+            else
+            {
+                _dbSet.Update(entity);
+            }
             _mainDbContext.SaveChanges();
+        }
+
+        public void SetPropertyUnModified(Entity entity, string name)
+        {
+            var property = _mainDbContext.Entry(entity).Property(name);
+            if (property != null)
+            {
+                property.IsModified = false;
+            }
         }
 
         public void Remove(Entity entity)

@@ -1,17 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GlobusRemote.Data.Annotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace GlobusRemote.Models
 {
     public class LoginViewModel
     {
-        [Required (ErrorMessage = "LoginRequired")]
+        [RequiredLocalized]
         [DataType(DataType.Text)]
-        [Display(Name = "Login")]
+        [Display(ResourceType = typeof(Localize.Index), Name = "Field_Base_Login")]
         public string Login { get; set; }
 
-        [Required(ErrorMessage = "PasswordRequired")]
+        [RequiredLocalized]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(ResourceType = typeof(Localize.Index), Name = "Field_Base_Password")]
         public string Password { get; set; }
 
         //[Display(Name = "Remember me?")]

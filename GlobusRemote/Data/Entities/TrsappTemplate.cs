@@ -29,5 +29,15 @@ namespace GlobusRemote.Data.Entities
         public virtual ICollection<TrsappTemplatesLinksAccess> TrsappTemplatesLinksAccesses { get; set; }
         public virtual ICollection<TrsappTemplatesLinksScenariosGroup> TrsappTemplatesLinksScenariosGroups { get; set; }
         public virtual ICollection<TrsappUsersTemplatesLink> TrsappUsersTemplatesLinks { get; set; }
+
+        public override object GetId()
+        {
+            return Fid;
+        }
+
+        public override bool IsEqual(object Id)
+        {
+            return Fid == (short)Id;
+        }
     }
 }

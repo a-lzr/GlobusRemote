@@ -2,16 +2,26 @@
 @using Localize = GlobusRemote.Localize.Index
 
 <div class="cell-wrapper">
+    @if (Model.CanShow)
+    {
+        @using (Html.BeginForm("Show", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
+            <input type="submit" src="Show?id=@Model.Id" class="btn btn-outline-secondary showDialog mr-2" title="@Localize.DataControl_Submit_Show_Hint" value="@Localize.DataControl_Submit_Show_Title">
+        }
+    }
     @if (Model.CanEdit)
     {
-        @*@Html.ActionLink(@Localize.DataControl_Submit_Edit_Title, "Edit", new { id = Model.Id }, new { @class = "compItem mr-2" })*@
-        <input type="submit" src="Edit?id=@Model.Id" class="btn btn-outline-info showdialog mr-2" data-toggle="modal" data-target="#exampleModalCenter" title="@Localize.DataControl_Submit_Edit_Hint" value="@Localize.DataControl_Submit_Edit_Title">
+        <input type="submit" src="Edit?id=@Model.Id" class="btn btn-outline-info editDialog mr-2" title="@Localize.DataControl_Submit_Edit_Hint" value="@Localize.DataControl_Submit_Edit_Title">
     }
     @if (Model.CanDelete)
     {
-        @*@Html.ActionLink(@Localize.DataControl_Submit_Delete_Title, "Remove", new { id = Model.Id }, new { @class = "compItem" })*@
-        <form action="Remove?id=@Model.Id" method="post">
-            <input type="submit" class="btn btn-outline-danger" title="@Localize.DataControl_Submit_Delete_Hint" value="@Localize.DataControl_Submit_Delete_Title" onclick="return confirm('@Localize.DataControl_Submit_Delete_Confirm')">
-        </form>
+        @using (Html.BeginForm("Remove", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
+            <input type="submit" class="btn btn-outline-danger deleteDialog" title="@Localize.DataControl_Submit_Delete_Hint" value="@Localize.DataControl_Submit_Delete_Title" onclick="return confirm('@Localize.DataControl_Submit_Delete_Confirm')">
+        }
     }
 </div>

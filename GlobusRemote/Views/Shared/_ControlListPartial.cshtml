@@ -1,7 +1,7 @@
 ﻿@using Localize = GlobusRemote.Localize.Index
 
 @{
-    var href = "";
+    var href = "?";
     var href2 = "?";
     var tagSearch = "";
     var tagPrevious = "";
@@ -16,7 +16,7 @@
     }
     if (!String.IsNullOrEmpty(Model.Header.SortedCurrent))
     {
-        href = $"?sort={Model.Header.SortedCurrent}";
+        href += $"sort={Model.Header.SortedCurrent}";
         href2 += $"sort={Model.Header.SortedCurrent}&";
     }
     if (Model.Page <= 1)
@@ -33,20 +33,17 @@
     @if (Model.CanAdd)
     {
         <li class="nav-item mr-3">
-            <input type="submit" src="Edit" class="btn btn-outline-primary showdialog" data-toggle="modal" data-target="#exampleModalCenter" title="@Localize.DataControl_Submit_Add_Hint" value="@Localize.DataControl_Submit_Add_Title">
+            <input type="submit" src="Edit" class="btn btn-outline-info editDialog mr-2" title="@Localize.DataControl_Submit_Add_Hint" value="@Localize.DataControl_Submit_Add_Title">
         </li>
     }
 
     <li class="nav-item mr-auto">
         <form method="get">
             <div class="input-group mb-3">
-                @*@Html.HiddenFor(m => m.Header.SortedField)*@
                 @Html.Hidden("sort", (object)Model.Header.SortedCurrent)
-                @*@Html.HiddenFor(m => m.Name)*@
                 <input class="form-control" type="text" placeholder="@Localize.DataControl_Submit_Search_Field_Title" aria-label="Search" id="search-field" name="search" value="@Model.Search">
                 <div class="input-group-append">
                     <button id="search-submit" class="btn btn-outline-success @tagSearch" type="submit" aria-disabled="true">@Localize.DataControl_Submit_Search_Title</button>
-                    @*<input class="btn btn-outline-success @tagSearch" type="submit" id="search-submit" value="@Localize.DataControl_Search_Submit_Title" aria-disabled="true" />*@
                     @if (!String.IsNullOrEmpty(Model.Search))
                     {
                         <a href="@href" class="btn btn-outline-danger" type="submit">@Localize.DataControl_Submit_Search_Clear_Title</a>

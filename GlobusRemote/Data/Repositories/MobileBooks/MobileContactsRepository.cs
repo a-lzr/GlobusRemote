@@ -13,7 +13,9 @@ namespace GlobusRemote.Data.Repositories.MobileBooks
 
         protected override IQueryable<TrsdirAppContact> ApplyFiltering(IQueryable<TrsdirAppContact> query, string search)
         {
-            return query.Where(x => x.Fname.Contains(search) || x.Fcomment.Contains(search));
+            return query.Where(x => x.Fname.Contains(search) ||
+                x.Fcomment.Contains(search) ||
+                x.TrsdirAppContactsLinks.Where(x => x.Fcontact.Contains(search)).ToList().Count > 0);
         }
     }
 }
