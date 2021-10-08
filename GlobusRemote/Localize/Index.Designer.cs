@@ -547,6 +547,24 @@ namespace GlobusRemote.Localize {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Значение не может быть длиннее.
+        /// </summary>
+        public static string FieldValidate_Max_Title1 {
+            get {
+                return ResourceManager.GetString("FieldValidate_Max_Title1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to символов..
+        /// </summary>
+        public static string FieldValidate_Max_Title2 {
+            get {
+                return ResourceManager.GetString("FieldValidate_Max_Title2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Поле не заполнено..
         /// </summary>
         public static string FieldValidate_Required_Title {

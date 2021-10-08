@@ -8,7 +8,6 @@
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id="editForm", enctype = "multipart/form-data" }))
 {
     <div class="modal-body">
-
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
@@ -55,7 +54,6 @@
                     }
                 })
                 @Html.ValidationMessageFor(model => model.Fname, "", new { @class = "text-danger" })
-                @Html.ValidationMessage("CustomError")
             </div>
 
             <div class="form-floating">

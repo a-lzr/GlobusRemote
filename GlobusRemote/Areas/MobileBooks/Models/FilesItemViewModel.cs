@@ -1,8 +1,5 @@
-﻿using GlobusRemote.Data.Annotations;
-using GlobusRemote.Models;
-using Microsoft.AspNetCore.Http;
+﻿using GlobusRemote.Models;
 using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace GlobusRemote.Areas.MobileBooks.Models
 {

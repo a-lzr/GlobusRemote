@@ -12,18 +12,20 @@ namespace GlobusRemote.Areas.MobileBooks.Models
         public int Fid { get; set; }
         public IFormFile File { get; set; }
 
-        [RequiredLocalized]
         [Display(ResourceType = typeof(Localize.Index), Name = "Field_Base_Type")]
+        [RequiredLocalized]
         public byte? FkType { get; set; }
 
-        [RequiredLocalized]
         [DataType(DataType.Text)]
         [Display(ResourceType = typeof(Localize.Index), Name = "Field_Base_Name")]
+        [MaxLengthLocalized(64)]
+        [RequiredLocalized]
         public string Fname { get; set; }
 
-        [RequiredLocalized]
         [DataType(DataType.Text)]
         [Display(ResourceType = typeof(Localize.Index), Name = "Field_Base_Extention")]
+        [MaxLengthLocalized(16)]
+        [RequiredLocalized]
         public string Fextention { get; set; }
 
         [Display(ResourceType = typeof(Localize.Index), Name = "Field_Base_Size")]

@@ -198,6 +198,12 @@
   <data name="Error_DB_UK_RSAppFiles_Name" xml:space="preserve">
     <value>A file with the current name already exists.</value>
   </data>
+  <data name="FieldValidate_Max_Title1" xml:space="preserve">
+    <value>The value cannot be longer than</value>
+  </data>
+  <data name="FieldValidate_Max_Title2" xml:space="preserve">
+    <value>characters.</value>
+  </data>
   <data name="FieldValidate_Required_Title" xml:space="preserve">
     <value>The field is required.</value>
   </data>

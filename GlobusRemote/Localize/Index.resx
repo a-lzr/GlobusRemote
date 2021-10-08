@@ -198,6 +198,12 @@
   <data name="Error_DB_UK_RSAppFiles_Name" xml:space="preserve">
     <value>Файл с указанным именем уже существует.</value>
   </data>
+  <data name="FieldValidate_Max_Title1" xml:space="preserve">
+    <value>Значение не может быть длиннее</value>
+  </data>
+  <data name="FieldValidate_Max_Title2" xml:space="preserve">
+    <value>символов.</value>
+  </data>
   <data name="FieldValidate_Required_Title" xml:space="preserve">
     <value>Поле не заполнено.</value>
   </data>

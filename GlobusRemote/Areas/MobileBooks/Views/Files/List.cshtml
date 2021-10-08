@@ -22,11 +22,6 @@
                     </div>
                 }
                 <div>
-                    @*<a class="btn btn-outline-info editDialog mr-2" href="Edit?id=@item.EditInfo.Id" data-toggle="modal" data-target="#myModal">@Localize.DataControl_Submit_Edit_Title</a>*@
-
-                    @*data-toggle="modal" data-target="#editDialog">@Localize.DataControl_Submit_Edit_Title</a>*@
-                    @*<a class="btn btn-outline-info editDialog mr-2" href="Edit?id=@item.EditInfo.Id" data-toggle="modal" data-target="#editDialog">@Localize.DataControl_Submit_Edit_Title</a>
-                        <input type="submit" src="Edit?id=@item.EditInfo.Id" class="btn btn-outline-info editDialog mr-2" title="@Localize.DataControl_Submit_Edit_Hint" value="@Localize.DataControl_Submit_Edit_Title">*@
                     @{
                         await Html.RenderPartialAsync("_ControlItemPartial", item.EditInfo);
                     }
@@ -36,41 +31,14 @@
     </div>
 </div>
 
-@*<form asp-action="Edit"
-          data-ajax="true" data-ajax-method="POST"
-          data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
-          data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
-    </form>*@
-<div id="progress" class="modal">
-    <div class="center">
-        <img src="~/img/progress.gif" />
-    </div>
-</div>
-
-@*<script type="text/javascript">
-        function OnBegin() {
-            alert("Происходит отправка запроса");
-        }
-        function OnSuccess(data) {
-            alert("Запрос был успешно выполнен. Получены следующие данные: \n" + data);
-        }
-        function OnFailure(request, error) {
-            $("#results").html("Книги указанного автора не содержатся в базе данных.");
-        }
-        function OnComplete(request, status) {
-            alert("Статус запроса : " + status);
-        }
-    </script>*@
-
-    <div id='editModal' class='modal fade in'>
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div id='editModalContent'>
-                    @*<partial name="~/Areas/MobileBooks/Views/Files/Edit.cshtml" model="new GlobusRemote.Areas.MobileBooks.Models.FilesItemViewModel()" />*@
-                </div>
+<div id='editModal' class='modal fade in'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='editModalContent'>
             </div>
         </div>
     </div>
+</div>
 
 @section Scripts{
     <script src="~/js/edit.js"></script>

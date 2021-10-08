@@ -55,7 +55,7 @@ namespace GlobusRemote
             services.AddAuthentication(AuthName)
                 .AddCookie(AuthName, config =>
                 {
-                    config.LoginPath = "/Account/Login";
+                    config.LoginPath = "/Home/Index";
                     config.LogoutPath = "/Account/Logout";
                     config.AccessDeniedPath = "/User/Denied";
                     //                    options.ReturnUrlParameter = cookiesConfig.ReturnUrlParameter;
