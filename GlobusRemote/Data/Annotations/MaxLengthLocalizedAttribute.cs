@@ -4,7 +4,7 @@ namespace GlobusRemote.Data.Annotations
 {
     public class MaxLengthLocalizedAttribute : MaxLengthAttribute
     {
-        public MaxLengthLocalizedAttribute(int length) : base(length) { }
+        public MaxLengthLocalizedAttribute(int length) : base(length) {}
 
         public override string FormatErrorMessage(string name)
         {

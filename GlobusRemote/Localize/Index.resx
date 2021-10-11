@@ -204,6 +204,15 @@
   <data name="FieldValidate_Max_Title2" xml:space="preserve">
     <value>символов.</value>
   </data>
+  <data name="FieldValidate_Range_Title1" xml:space="preserve">
+    <value>Значение должно быть между</value>
+  </data>
+  <data name="FieldValidate_Range_Title2" xml:space="preserve">
+    <value>и</value>
+  </data>
+  <data name="FieldValidate_Range_Title3" xml:space="preserve">
+    <value>.</value>
+  </data>
   <data name="FieldValidate_Required_Title" xml:space="preserve">
     <value>Поле не заполнено.</value>
   </data>

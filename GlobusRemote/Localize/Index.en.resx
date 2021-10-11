@@ -204,6 +204,15 @@
   <data name="FieldValidate_Max_Title2" xml:space="preserve">
     <value>characters.</value>
   </data>
+  <data name="FieldValidate_Range_Title1" xml:space="preserve">
+    <value>The value must be between</value>
+  </data>
+  <data name="FieldValidate_Range_Title2" xml:space="preserve">
+    <value>and</value>
+  </data>
+  <data name="FieldValidate_Range_Title3" xml:space="preserve">
+    <value>.</value>
+  </data>
   <data name="FieldValidate_Required_Title" xml:space="preserve">
     <value>The field is required.</value>
   </data>

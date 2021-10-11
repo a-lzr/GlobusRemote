@@ -565,6 +565,33 @@ namespace GlobusRemote.Localize {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Значение должно быть между.
+        /// </summary>
+        public static string FieldValidate_Range_Title1 {
+            get {
+                return ResourceManager.GetString("FieldValidate_Range_Title1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to и.
+        /// </summary>
+        public static string FieldValidate_Range_Title2 {
+            get {
+                return ResourceManager.GetString("FieldValidate_Range_Title2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ..
+        /// </summary>
+        public static string FieldValidate_Range_Title3 {
+            get {
+                return ResourceManager.GetString("FieldValidate_Range_Title3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Поле не заполнено..
         /// </summary>
         public static string FieldValidate_Required_Title {

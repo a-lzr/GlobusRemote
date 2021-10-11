@@ -29,6 +29,7 @@ namespace GlobusRemote.Areas.MobileBooks.Models
         public string Fextention { get; set; }
 
         [Display(ResourceType = typeof(Localize.Index), Name = "Field_Base_Size")]
+        [RangeLocalized(1, 10485760)]
         public int Fsize { get; set; }
         public double FsizeInKb { get; set; }
         public byte[] Fbody { get; set; }
